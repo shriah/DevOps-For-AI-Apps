@@ -13,13 +13,10 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: cd flaskwebapp && wget http://data.csail.mit.edu/soundnet/categories/categories_imagenet.txt 
-  displayName: 'Run a multi-line script'
-
-- script: wget https://www.cntk.ai/resnet/ResNet_152.model
-  displayName: 'Run a multi-line script'
-
-
-- script: docker build
+- script: |
+    cd flaskwebapp 
+    wget http://data.csail.mit.edu/soundnet/categories/categories_imagenet.txt 
+    wget https://www.cntk.ai/resnet/ResNet_152.model
+    docker build
   displayName: 'Run a multi-line script'
 
