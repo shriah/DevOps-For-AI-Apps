@@ -22,10 +22,10 @@ steps:
     cd flaskwebapp 
     wget http://data.csail.mit.edu/soundnet/categories/categories_imagenet.txt 
     wget https://www.cntk.ai/resnet/ResNet_152.model
-    docker build --tag="abi-cicd" .
   displayName: 'Pull Model'
 
 - script: |
+    cd flaskwebapp
     docker build --tag="abi-cicd" .
   displayName: 'Docker Build'
 
