@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  projectName: parrot
+  projectName: abicicd
   registryServerName: '$(registryName).azurecr.io'
   imageName: '$(projectName)'
 
@@ -26,12 +26,12 @@ steps:
 
 - script: |
     cd flaskwebapp
-    docker build --tag="abi-cicd" .
+    docker build -t $(registryServerName)/$(imageName):$(build.buildId) .
   displayName: 'Docker Build'
 
 - script: |
     docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
-    docker push abi-cicd
+    docker push $(registryServerName)/$(imageName):$(build.buildId)
   displayName: 'Docker Push'
   
 - task: HelmInstaller@0
