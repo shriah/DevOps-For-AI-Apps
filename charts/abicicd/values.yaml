@@ -7,4 +7,4 @@ service:
   externalPort: 80
 ingress:
   enabled: true
-  basedomain: <REPLACE WITH YOUR OWN AKS CLUSTER>.<YOUR REGION>.aksapp.io # replace with your own from the portal
+  basedomain: abitest-dns-f4d5b0eb.hcp.southeastasia.azmk8s.io # replace with your own from the portal
