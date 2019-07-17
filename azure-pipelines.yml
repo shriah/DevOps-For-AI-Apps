@@ -18,5 +18,24 @@ steps:
     wget http://data.csail.mit.edu/soundnet/categories/categories_imagenet.txt 
     wget https://www.cntk.ai/resnet/ResNet_152.model
     docker build --tag="abi-cicd" .
-  displayName: 'Run a multi-line script'
+  displayName: 'Pull Model'
 
+- script: |
+    docker build --tag="abi-cicd" .
+  displayName: 'Docker Build'
+
+- script: |
+    docker login $(registryServerName) -u $(registryLogin) -p $(registryPassword)
+    docker push abi-cicd
+  displayName: 'Docker Push'
+  
+- task: HelmInstaller@0
+  displayName: 'Install Helm'
+  inputs:
+    helmVersion: 2.14.1
+
+- bash: helm package --version $(build.buildId) --destination $(build.artifactStagingDirectory) $(system.defaultWorkingDirectory)/$(projectName)/charts/$(projectName)
+  displayName: 'helm package'
+
+- bash: az acr helm push -n $(registryName) -u $(registryLogin) -p $(registryPassword) $(build.artifactStagingDirectory)/$(projectName)-$(build.buildId).tgz
+  displayName: 'az acr helm push'
