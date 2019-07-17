@@ -13,7 +13,28 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: sh downloadblob.sh
+- script: wget http://data.csail.mit.edu/soundnet/categories/categories_imagenet.txt 
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- script: wget https://www.cntk.ai/resnet/ResNet_152.model
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- script: cp categories_imagenet.txt flashapp 
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- script: wget https://www.cntk.ai/resnet/ResNet_152.model
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- script: docker build
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
