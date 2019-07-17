@@ -23,15 +23,6 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- script: cp categories_imagenet.txt flashapp 
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- script: wget https://www.cntk.ai/resnet/ResNet_152.model
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
 - script: docker build
     echo Add other tasks to build, test, and deploy your project.
