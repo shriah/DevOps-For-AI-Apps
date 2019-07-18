@@ -7,7 +7,7 @@ WORKDIR /code
 ADD . /code/
 ADD etc /etc
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y  \
         openmpi-bin \
         python \
         python-dev \
@@ -22,4 +22,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp27-cp27mu-linux_x86_64.whl
 
 EXPOSE 88
-CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["python", "app.py"]
