@@ -3,7 +3,7 @@ image:
   useImagePullSecrets: false
   pullPolicy: Always
 service:
-  internalPort: 80
+  internalPort: 5000
   externalPort: 80
 ingress:
   enabled: true
