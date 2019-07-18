@@ -1,4 +1,4 @@
 apiVersion: v1
-description: Parrot is Captain Kube's sidekick, who shows everything the captain's doing on-screen. 
-name: parrot
+description: ABI CI/CD. 
+name: abicicd
 version: v0.1.0
