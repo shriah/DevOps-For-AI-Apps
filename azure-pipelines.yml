@@ -20,7 +20,7 @@ steps:
 
 - script: |
     cd flaskwebapp 
-    wget http://data.csail.mit.edu/soundnet/categories/categories_imagenet.txt 
+    wget https://raw.githubusercontent.com/ry/tensorflow-vgg16/master/synset.txt
     wget https://www.cntk.ai/resnet/ResNet_152.model
   displayName: 'Pull Model'
 
