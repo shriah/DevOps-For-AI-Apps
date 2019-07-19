@@ -4,8 +4,7 @@ from driver import *
 import time
 
 app = Flask(__name__)
-
-
+init()
 @app.route('/score', methods = ['POST'])
 def scoreRRS():
     """ Endpoint for scoring
